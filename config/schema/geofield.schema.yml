@@ -73,6 +73,10 @@ field.widget.settings.geofield_latlon:
       type: boolean
       label: 'Use HTML5 Geolocation to set default values'
 
+views.filter_value.geofield_proximity:
+  type: views.field.numeric
+  label: 'Geofield Proximity Field'
+
 field.formatter.settings.geofield_default:
   type: mapping
   label: 'Geofield default display format settings'

@@ -38,7 +38,7 @@ class GeofieldLatLon extends GeofieldElementBase {
       '#element_validate' => [
         [$class, 'elementValidate'],
       ],
-      '#theme_wrappers' => ['fieldset'],
+      '#theme_wrappers' => ['fieldset', 'form_element'],
     ];
   }
 

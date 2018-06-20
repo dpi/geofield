@@ -45,7 +45,7 @@ class GeofieldProximity extends FormElement {
   public static function proximityProcess(array &$element, FormStateInterface $form_state, array &$complete_form) {
     $element['#attributes'] = ['class' => ['clearfix']];
     $element['#tree'] = TRUE;
-    $element['#attached']['css'] = [drupal_get_path('module', 'geofield') . '/css/proximity-element.css'];
+    //$element['#attached']['css'] = [drupal_get_path('module', 'geofield') . '/css/proximity-element.css'];
 
     // Create the textfield for distance.
     $element['distance'] = [
@@ -53,7 +53,7 @@ class GeofieldProximity extends FormElement {
       '#title' => t('Distance'),
       '#default_value' => !empty($element['#default_value']['distance']) ? $element['#default_value']['distance'] : '',
       '#title_display' => 'invisible',
-      '#element_validate' => ['element_validate_integer_positive'],
+      '#element_validate' => ['geofield_element_validate_integer_positive'],
     ];
 
     // If #geofield_range is TRUE, create second option for range.
@@ -63,7 +63,7 @@ class GeofieldProximity extends FormElement {
         '#title' => t('Distance End'),
         '#default_value' => !empty($element['#default_value']['distance2']) ? $element['#default_value']['distance2'] : '',
         '#title_display' => 'invisible',
-        '#element_validate' => ['element_validate_integer_positive'],
+        '#element_validate' => ['geofield_element_validate_integer_positive'],
       ];
     }
 
@@ -77,6 +77,7 @@ class GeofieldProximity extends FormElement {
     ];
 
     // Create textfield for geocoded input.
+    // @TODO Does this need element validation of some form?
     $element['origin'] = [
       '#type' => (!empty($element['#origin_element'])) ? $element['#origin_element'] : 'textfield',
       '#title' => t('Origin'),

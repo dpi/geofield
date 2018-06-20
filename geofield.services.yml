@@ -8,3 +8,6 @@ services:
 
   geofield.geophp:
     class: Drupal\geofield\GeoPHP\GeoPHPWrapper
+  plugin.manager.geofield_proximity:
+    class: Drupal\geofield\Plugin\GeofieldProximityManager
+    parent: default_plugin_manager
